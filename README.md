@@ -2,7 +2,7 @@
 
 ## About
 
-Describe your project here.
+Sample app generated from my spring boot custome maven archetype : https://github.com/Romeh/spring-boot-quickstart-archtype
 
 ## Technical Stack
 
