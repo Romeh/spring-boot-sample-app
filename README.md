@@ -22,9 +22,16 @@ Sample app generated from my spring boot custome maven archetype : https://githu
 
 ## Installation
 
--  to run locally , you need to configure the run configuration by passing :
-1- VM parameter: -DLOG_PATH=../log
-2- Set SPRING profile to LOCAL 
+To run locally , you need to configure the run configuration by passing :
+- VM parameter: -DLOG_PATH=../log
+- Set SPRING profile to LOCAL 
+
+Test on the browser via SWAGGER
+-------------------
+
+```sh
+http://localhost:8080/swagger-ui.html
+```
 
 ## License
 
