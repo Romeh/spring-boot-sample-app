@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+    <property name="LOG_HOME" value="./Application"/>
+    <property name="FILE_LOG_PATTERN" value="%d{[yyyy-MM-dd HH:mm:ss]} [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="FILE_INCDIENT_PATTERN" value="%d{[yyyy-MM-dd HH:mm:ss]} [%thread] %-5level %logger{36} - %msg%n"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="stash-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/application.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>application.log.%i</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+
+    <logger name="stash" level="DEBUG" additivity="false">
+        <appender-ref ref="stash-file"/>
+    </logger>
+
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="stash-file"/>
+    </root>
+
+    <logger name="org.springframework" level="INFO"/>
+</configuration>
