@@ -1,8 +1,10 @@
-# The Sampleapp Project
+# A spring boot sample appa project
 
 ## About
 
 Sample app generated from my spring boot custome maven archetype : https://github.com/Romeh/spring-boot-quickstart-archtype
+
+for more details about it , check my post here : 
 
 ## Technical Stack
 
