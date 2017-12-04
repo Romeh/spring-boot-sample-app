@@ -5,9 +5,9 @@
 Sample app generated from my spring boot custome maven archetype : https://github.com/Romeh/spring-boot-quickstart-archtype
 
 for more details about it , check my posts here : 
-https://mromeh.com/2017/12/04/spring-boot-integration-test-with-cucumber-and-jenkins-pipeline/
-https://mromeh.com/2017/12/04/spring-boot-with-embedded-config-server-via-spring-cloud-config/
-https://mromeh.com/2017/12/04/spring-boot-integration-test-with-cucumber-and-jenkins-pipeline/
+- https://mromeh.com/2017/12/04/spring-boot-integration-test-with-cucumber-and-jenkins-pipeline/
+- https://mromeh.com/2017/12/04/spring-boot-with-embedded-config-server-via-spring-cloud-config/
+- https://mromeh.com/2017/12/04/spring-boot-integration-test-with-cucumber-and-jenkins-pipeline/
 
 ## Technical Stack
 
