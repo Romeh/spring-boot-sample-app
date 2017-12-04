@@ -1,9 +1,9 @@
 pipeline {
-    // run on jenkins nodes tha has java 8
-    agent { label 'jdk8' }
+    // run on jenkins nodes tha has java 8 label
+    agent { label 'java8' }
     // global env variables
     environment {
-        EMAIL_RECIPIENTS = 'mahmoud.romih@test.com'
+        EMAIL_RECIPIENTS = 'mahmoud.romeh@test.com'
     }
     stages {
 
@@ -83,7 +83,7 @@ pipeline {
                 }
             }
         }
-        stage('ITT deploy approval and deployment') {
+        stage('Development deploy approval and deployment') {
             steps {
                 script {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
@@ -99,7 +99,7 @@ pipeline {
                                 def jarName = "application-${developmentArtifactVersion}.jar"
                                 echo "the application is deploying ${jarName}"
                                 // NOTE : CREATE your deployemnt JOB, where it can take parameters whoch is the jar name to fetch from jenkins workspace
-                                build job: 'ApplicationToITT', parameters: [[$class: 'StringParameterValue', name: 'jarName', value: jarName]]
+                                build job: 'ApplicationToDev', parameters: [[$class: 'StringParameterValue', name: 'jarName', value: jarName]]
                                 echo 'the application is deployed !'
                             } else {
                                 error 'the application is not  deployed as development version is null!'
@@ -110,7 +110,7 @@ pipeline {
                 }
             }
         }
-        stage('ITT sanity check') {
+        stage('DEV sanity check') {
             steps {
                 // give some time till the deployment is done, so we wait 45 seconds
                 sleep(45)
@@ -157,7 +157,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to UAT') {
+        stage('Deploy to Acceptance') {
             when {
                 // check if branch is master
                 branch 'master'
@@ -177,7 +177,7 @@ pipeline {
                                 echo "the application is deploying ${jarName}"
                                 // NOTE : DO NOT FORGET to create your UAT deployment jar , check Job AlertManagerToUAT in Jenkins for reference
                                 // the deployemnt should be based into Nexus repo
-                                build job: 'AApplicationToUAT', parameters: [[$class: 'StringParameterValue', name: 'jarName', value: jarName], [$class: 'StringParameterValue', name: 'appVersion', value: releasedVersion]]
+                                build job: 'AApplicationToACC', parameters: [[$class: 'StringParameterValue', name: 'jarName', value: jarName], [$class: 'StringParameterValue', name: 'appVersion', value: releasedVersion]]
                                 echo 'the application is deployed !'
                             } else {
                                 error 'the application is not  deployed as released version is null!'
@@ -188,7 +188,7 @@ pipeline {
                 }
             }
         }
-        stage('UAT E2E tests') {
+        stage('ACC E2E tests') {
             when {
                 // check if branch is master
                 branch 'master'
