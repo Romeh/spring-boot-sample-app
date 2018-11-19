@@ -12,12 +12,9 @@ import java.util.Map;
 @Entity
 @Table(name = "Applications")
 @Builder
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ApplicationItem implements Serializable {
     @Column(name = "alertContent", nullable = false)
     @ElementCollection(targetClass = String.class)

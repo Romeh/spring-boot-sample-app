@@ -25,10 +25,11 @@ public class ApplicationSanityCheck_ITT {
     @Before
     public void setUp() throws Exception {
         this.base = new URL("http://localhost:" + port + "/");
-        // disable proxy if you wanna run locally
+        // disabled proxy config to run locally
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("userproxy.glb.ebc.local", 8080));
-        requestFactory.setProxy(proxy);
+        // just added for showing how to configure the proxy
+        // Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("userproxy.glb.ebc.local", 8080));
+        //requestFactory.setProxy(proxy);
         template = new RestTemplate(requestFactory);
 
 
@@ -38,7 +39,7 @@ public class ApplicationSanityCheck_ITT {
     @Test
     @Retry(times = 3, timeout = 20000)
     public void test_is_server_up() {
-        assertTrue(template.getForEntity(base + "/health", String.class).getStatusCode().is2xxSuccessful());
+        assertTrue(template.getForEntity(base + "/actuator/health", String.class).getStatusCode().is2xxSuccessful());
 
     }
 

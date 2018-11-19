@@ -12,8 +12,8 @@ for more details about it , check my posts here :
 ## Technical Stack
 
 - Java 1.8+
-- Maven 3.3+
-- Spring boot 1.5.6
+- Maven 3.5+
+- Spring boot 2.1.0.RELEASE
 - Lombok abstraction
 - JPA with H2 for explanation
 - Swagger 2 API documentation

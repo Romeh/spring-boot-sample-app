@@ -16,7 +16,7 @@ public class GetHealthStep extends CucumberRoot {
 
     @When("^the client calls /health$")
     public void the_client_issues_GET_health() throws Throwable {
-        response = template.getForEntity("/health", String.class);
+        response = template.getForEntity("/actuator/health", String.class);
     }
 
     @Then("^the client receives response status code of (\\d+)$")

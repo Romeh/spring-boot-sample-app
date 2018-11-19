@@ -22,10 +22,11 @@ public class ApplicationE2E{
     public void setUp() throws Exception {
         // replace that with UAT server host
         this.baseURL = new URL("http://localhost:" + port + "/");
-        // disable proxy if you wanna run locally
+        // disabled proxy config to run locally
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("userproxy.glb.ebc.local", 8080));
-        requestFactory.setProxy(proxy);
+        // just added for showing how to configure the proxy
+        //Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("userproxy.glb.ebc.local", 8080));
+        //requestFactory.setProxy(proxy);
         restTemplate = new RestTemplate();
 
 
@@ -33,7 +34,7 @@ public class ApplicationE2E{
     // example of true end to end call which call UAT real endpoint
     @Test
     public void test_is_server_up() {
-        assertTrue(restTemplate.getForEntity(baseURL + "/health", String.class).getStatusCode().is2xxSuccessful());
+        assertTrue(restTemplate.getForEntity(baseURL + "/actuator/health", String.class).getStatusCode().is2xxSuccessful());
 
     }
 
