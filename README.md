@@ -1,4 +1,4 @@
-# A spring boot sample app project
+# A spring boot 2 sample app project
 
 ## About
 
