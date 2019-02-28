@@ -1,4 +1,4 @@
-# A spring boot 2 sample app project
+## A spring boot 2 sample app project ![Twitter Follow](https://img.shields.io/twitter/follow/mromeh.svg?style=social)
 
 ## About
 
