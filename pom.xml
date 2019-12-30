@@ -21,7 +21,7 @@
         <unit-tests.skip>false</unit-tests.skip>
         <integration-tests.skip>false</integration-tests.skip>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
         <project.artifact.name>${project.artifactId}</project.artifact.name>
         <build.number>LOCAL</build.number>
         <unit-tests.skip>false</unit-tests.skip>
@@ -37,14 +37,13 @@
         <jacoco.dataFile>${project.basedir}/../target/jacoco.exec</jacoco.dataFile>
         <jacoco.reporting.outputDirectory>${project.basedir}/../target/reports/jacoco</jacoco.reporting.outputDirectory>
         <jacoco.inclNoLocationClasses>true</jacoco.inclNoLocationClasses>
-        <spring-aop.version>5.1.2.RELEASE</spring-aop.version>
-        <spring.retry.version>1.2.2.RELEASE</spring.retry.version>
+        <spring.retry.version>1.2.5.RELEASE</spring.retry.version>
         <mockito-core.version>2.8.47</mockito-core.version>
-        <swagger.version>2.7.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
         <logback.version>1.2.3</logback.version>
-        <cucumber-version>1.2.5</cucumber-version>
-        <modelmapper-version>2.3.1</modelmapper-version>
-        <lombok-version>1.18.4</lombok-version>
+        <cucumber-version>1.2.6</cucumber-version>
+        <modelmapper-version>2.3.6</modelmapper-version>
+        <lombok-version>1.18.10</lombok-version>
         <!-- add the rest controller list for swaggaer -->
         <rest-locations>com.test.sampleapp.web</rest-locations>
 
@@ -83,6 +82,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -164,11 +167,6 @@
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
             <version>${spring.retry.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring-aop.version}</version>
         </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>
